@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint:fix": "eslint *.ts --fix"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "name": "project",
+  "packageManager": "npm@8.1.2",
+  "workspaces": [
+    "apps/**",
+    "packages/*"
+  ]
+}
