@@ -12,6 +12,7 @@
 - `microservice`: Diretório dos microserviços (backend), utilizamos o framework [NestJs](https://nestjs.com/)
 - `eslint-config-custom`: Confiurações padrões do EsLint para utilizarmos em todo o projeto
 - `tsconfig`: Configurações padroes do tsconfig para utilizarmos em todo o projeto
+- `api-client`: Consumo da API com axios
 
 <br/>
 
