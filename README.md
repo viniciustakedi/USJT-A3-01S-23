@@ -1,81 +1,32 @@
-# Turborepo starter
+# USJT-2023/1-A3
+## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
+<br/>
 
-This is an official starter Turborepo.
+### Essa aplicação utiliza [Turborepo](https://turbo.build/) para compilação do código, e [TypeScript](https://www.typescriptlang.org/) para desenvolvimento.
 
-## Using this example
+<br/>
 
-Run the following command:
+## Apps and Packages
 
-```sh
-npx create-turbo@latest
-```
+- `frontend`: Aplicação React desenvolvida com o framework [ViteJs](https://vitejs.dev/)
+- `microservice`: Diretório dos microserviços (backend), utilizamos o framework [NestJs](https://nestjs.com/)
+- `eslint-config-custom`: Confiurações padrões do EsLint para utilizarmos em todo o projeto
+- `tsconfig`: Configurações padroes do tsconfig para utilizarmos em todo o projeto
 
-## What's inside?
+<br/>
 
-This Turborepo includes the following packages/apps:
+## Scripts
+- `npm run dev`: Inicia a aplicação em ambiente de desenvolvimento
+  - frontend: http://localhost:3000/
+  - microserviço de dados musicais: http://localhost:5000/
+  - microserviço de usuario: http://localhost:5001/
 
-### Apps and Packages
+- `npm run build`: Build da aplicação
+- `npm run lint`: Serviço de lint na aplicação
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+<br/>
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+### Para adicionar pacotes à aplicação utilize o comando npm i "pacote" --workspace="nome-do-app"
+### Leia a [documentação de pacotes](https://turbo.build/repo/docs/handbook/package-installation) do Turborepo para melhor aproveitamento.
 
-### Utilities
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
