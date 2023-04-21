@@ -1,8 +1,17 @@
 import { Button, Container, Stack, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import { useClient } from '../../hooks/use-client'
+import { useAsyncCallback } from 'react-async-hook'
 
 export default function SignInPage() {
+  const client = useClient()
+
+  const helloWorld = useAsyncCallback(async () => {
+    await client.user.helloWorld()
+    await client.musicData.helloWorld()
+  })
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -64,7 +73,7 @@ export default function SignInPage() {
           <Button variant='contained' type='submit'>
             Entrar
           </Button>
-          <Button variant='text' sx={{ mt: '8px' }}>
+          <Button variant='text' sx={{ mt: '8px' }} onClick={() => helloWorld.execute()}>
             Nao possue conta? Crie uma
           </Button>
         </Stack>
