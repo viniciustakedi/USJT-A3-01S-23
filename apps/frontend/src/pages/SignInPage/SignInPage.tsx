@@ -28,22 +28,28 @@ export default function SignInPage() {
   })
   return (
     <Container
-      maxWidth="sm"
+      maxWidth={false}
       sx={{
-        backgroundColor: 'white',
+        background: 'linear-gradient(#000, #323232)',
         padding: '16px',
-        borderRadius: '8px'
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}
     >
       <Typography
         textAlign='center'
         variant='h1'
+        color='#FFF'
       >
         Bem vindo!
       </Typography>
       <Typography
         variant='h3'
         mb='32px'
+        sx={{ textAlign: 'center', marginTop: '12px', color: '#FFF' }}
       >
         Obtenha insights sobre suas musicas artistas e muito mais
       </Typography>
@@ -54,8 +60,9 @@ export default function SignInPage() {
           value={formik.values.email}
           onChange={formik.handleChange}
           fullWidth
+          color='primary'
           sx={{
-            mb: '16px'
+            mb: '16px',
           }}
         />
         <TextField
@@ -70,11 +77,11 @@ export default function SignInPage() {
             mt: '16px'
           }}
         >
-          <Button variant='contained' type='submit'>
+          <Button variant='contained' type='submit' sx={{ color: '#FFF', borderRadius: '25px' }}>
             Entrar
           </Button>
           <Button variant='text' sx={{ mt: '8px' }} onClick={() => helloWorld.execute()}>
-            Nao possue conta? Crie uma
+            Não possui uma conta? Clique aqui para criar!
           </Button>
         </Stack>
       </form>
