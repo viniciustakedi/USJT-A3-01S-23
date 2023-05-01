@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import { useClient } from '../../hooks/use-client'
 import { useAsyncCallback } from 'react-async-hook'
-import { Button } from '@mui/material'
+import { Button, LinearProgress } from '@mui/material'
 
 export default function DashboardPage() {
   const client = useClient()
@@ -26,7 +26,7 @@ export default function DashboardPage() {
       >
         Meu perfil
       </Button>
-      {getUserProfile.loading && <p>Carregando...</p>}
+      {getUserProfile.loading && <LinearProgress />}
       {getUserProfile.error && <p>Erro ao carregar</p>}
       {getUserProfile.result && (
         <>
