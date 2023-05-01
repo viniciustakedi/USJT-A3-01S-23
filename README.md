@@ -31,9 +31,3 @@
 ### Leia a [documentação de pacotes](https://turbo.build/repo/docs/handbook/package-installation) do Turborepo para melhor aproveitamento.
 
 <br />
-
-# ER Diagram
-![Diagrama sem nome drawio (1)](https://user-images.githubusercontent.com/88735972/233748375-edbd29e2-0d5d-41be-b2fc-9ddbfa6c0cb4.png)
-
-
-
