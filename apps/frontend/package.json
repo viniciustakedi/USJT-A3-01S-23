@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.1",
     "api-client": "*",
+    "dotenv": "^16.0.3",
     "eslint-config-custom": "*",
     "formik": "^2.2.9",
     "react": "^18.2.0",

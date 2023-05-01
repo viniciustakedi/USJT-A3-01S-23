@@ -35,6 +35,14 @@ const themeOptions: ThemeOptions = {
   },
   components: {
     MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained'},
+          style: {
+            color: '#FFFFFF'
+          }
+        }
+      ],
       defaultProps: {
         disableElevation: true
       },
