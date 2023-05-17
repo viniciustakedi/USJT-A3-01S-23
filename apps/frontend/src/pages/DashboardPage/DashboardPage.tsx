@@ -13,6 +13,8 @@ export default function DashboardPage() {
     try {
       const accessToken = await client.spotify.getAccessToken(codeValue)
       const profile = await client.spotify.getUserProfile(accessToken.data.access_token)
+      const topArtists = await client.spotify.getUserTopArtists(accessToken.data.access_token)
+      const topTracks = await client.spotify.getUserTopTracks(accessToken.data.access_token)
 
       await client.user.create({
         name: profile.data.display_name,
@@ -22,7 +24,7 @@ export default function DashboardPage() {
 
       console.log('usuario criado no banco de dados com sucesso')
 
-      return profile
+      return { profile, topArtists, topTracks }
     } catch {
       console.log('error')
     }
@@ -30,20 +32,46 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Button
-        variant='outlined'
-        onClick={() => getUserProfile.execute()}
-      >
-        Meu perfil
+      <Button onClick={getUserProfile.execute} variant='text'>
+        Executar
       </Button>
       {getUserProfile.loading && <LinearProgress />}
       {getUserProfile.error && <p>Erro ao carregar</p>}
       {getUserProfile.result && (
         <>
-          <p>nome: {getUserProfile.result.data.display_name}</p>
-          <p>id spotify: {getUserProfile.result.data.id}</p>
-          <p>uri spotify: {getUserProfile.result.data.uri}</p>
-          <img src={getUserProfile.result.data.images[0].url || ''} alt="profile" />
+          <p>nome: {getUserProfile.result.profile.data.display_name}</p>
+          <p>id spotify: {getUserProfile.result.profile.data.id}</p>
+          <p>uri spotify: {getUserProfile.result.profile.data.uri}</p>
+          <img src={getUserProfile.result.profile.data.images[0].url || ''} alt="profile" />
+          <h2>Artista favoritos</h2>
+          <ul>
+            {getUserProfile.result.topArtists.data.items.map(artist => (
+              <li>
+                {artist.name}
+              </li>
+            ))}
+          </ul>
+          <h2>Generos favoritos</h2>
+          <ul>
+            {getUserProfile.result.topArtists.data.items.map(artist => artist.genres.map(genre => genre).join(', ')).sort()}
+          </ul>
+          <h2>Tracks favoritas</h2>
+          <ul>
+            {getUserProfile.result.topTracks.data.items.map(track => (
+              <li>
+                <b>{track.name}</b> - {track.album.name}
+                <ul>
+                  <li>
+                    Data de lançamento - {track.album.release_date}
+                  </li>
+                  <li>
+                    Duração (ms) - {track.duration_ms}
+                  </li>
+                  <br />
+                </ul>
+              </li>
+            )).sort()}
+          </ul>
         </>
       )}
     </>

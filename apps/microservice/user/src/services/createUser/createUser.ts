@@ -17,6 +17,7 @@ export async function createUser(
 
   if (userAlreadyExists) {
     await kafkaSendMessage.execute('users', { message: {
+      id: userAlreadyExists.id,
       name: userAlreadyExists.name,
       spotify_id: userAlreadyExists.spotify_id,
       spotify_uri: userAlreadyExists.spotify_uri
@@ -34,6 +35,7 @@ export async function createUser(
   })
 
   await kafkaSendMessage.execute('users', { message: {
+    id: user.id,
     name: user.name,
     spotify_id: user.spotify_id,
     spotify_uri: user.spotify_uri
