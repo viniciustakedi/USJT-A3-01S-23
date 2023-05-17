@@ -32,9 +32,11 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Button onClick={getUserProfile.execute} variant='text'>
-        Executar
-      </Button>
+      {!getUserProfile.result && (
+        <Button onClick={getUserProfile.execute} variant='outlined'>
+          Executar
+        </Button>
+      )}
       {getUserProfile.loading && <LinearProgress />}
       {getUserProfile.error && <p>Erro ao carregar</p>}
       {getUserProfile.result && (
