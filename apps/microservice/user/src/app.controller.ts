@@ -1,16 +1,17 @@
-import { Controller, Get } from '@nestjs/common'
+import { Body, Controller, Post } from '@nestjs/common'
 import { AppService } from './services/app.service'
-import { KafkaSendMessage } from './cluster/kafka/producer'
+import { User } from '@prisma/client'
+import { CreateUserDTO } from './dtos/CreateUserDTO'
 
 @Controller()
 export class AppController {
   constructor(
     private readonly appService: AppService) {}
 
-  @Get('hello-world')
-  async getHello(): Promise<any> {
-     const helloWorld = await this.appService.getHello()
+  @Post('create')
+  async createUser(@Body() body: CreateUserDTO): Promise<User> {
+     const result = await this.appService.createUser(body)
 
-     return helloWorld
+     return result
   }
 }

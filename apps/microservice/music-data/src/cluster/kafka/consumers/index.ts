@@ -1,1 +1,1 @@
-import './hello-world.consumer'
+import './createUser.consumer'

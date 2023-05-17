@@ -1,8 +1,7 @@
 import { kafkaConsumer } from '../kafka.consumer'
 
-export async function createHelloWorldConsumer() {
-  console.log('Hello World Consumer')
-  const consumer = await kafkaConsumer('test')
+export async function CreateUserConsumer() {
+  const consumer = await kafkaConsumer('users')
   await consumer.run({
     eachMessage: async ({ message }) => {
       const messageToString = message.value.toString()
@@ -11,4 +10,4 @@ export async function createHelloWorldConsumer() {
   })
 }
 
-createHelloWorldConsumer()
+CreateUserConsumer()
