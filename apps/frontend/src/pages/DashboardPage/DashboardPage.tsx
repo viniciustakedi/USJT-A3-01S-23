@@ -12,7 +12,17 @@ export default function DashboardPage() {
   const getUserProfile = useAsyncCallback(async () => {
     try {
       const accessToken = await client.spotify.getAccessToken(codeValue)
-      return await client.spotify.getUserProfile(accessToken.data.access_token)
+      const profile = await client.spotify.getUserProfile(accessToken.data.access_token)
+
+      await client.user.create({
+        name: profile.data.display_name,
+        spotify_id: profile.data.id,
+        spotify_uri: profile.data.uri
+      })
+
+      console.log('usuario criado no banco de dados com sucesso')
+
+      return profile
     } catch {
       console.log('error')
     }

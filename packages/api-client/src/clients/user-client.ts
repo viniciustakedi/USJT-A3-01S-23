@@ -1,6 +1,12 @@
 import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
 
+type CreateUserParams = {
+  name: string
+  spotify_id: string
+  spotify_uri: string
+}
+
 export class UserClient {
   private axios: AxiosInstance
 
@@ -11,7 +17,7 @@ export class UserClient {
     })
   }
 
-  async helloWorld() {
-    return await this.axios.get('/hello-world')
+  async create(params: CreateUserParams) {
+    return await this.axios.post('/create', params)
   }
 }
