@@ -17,7 +17,7 @@
 
 <br/>
 
-## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
+## Projeto das UCs desenvolvimento web e sistema distribuidos/mobile
 
 <br/>
 
