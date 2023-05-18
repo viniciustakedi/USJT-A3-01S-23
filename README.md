@@ -1,10 +1,15 @@
 # USJT-2023/1-A3
 ## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
 <br/>
-
-# Integrantes do grupo
-- <strong>Nome:</strong> Vinicius Takedi Souza Brunelli
-* <strong>RA:</strong> 821147761
+## Integrantes do grupo
+|       Nome       |         RA        |
+|------------------|------------------|
+| Vinicius Takedi Souza Brunelli | 821147761 |
+| Victor Oliveira Araújo | 821141079 |
+| Giuliano Orlovas Cabianca | 821140777 |
+| Pedro Aureliano de Oliveira Silva | 822159140 |
+| Matheus de Oliveira Pereira | 821115715 |
+| Maikon Reverson Melo Lima | 822158937 |
 
 <br/>
 
