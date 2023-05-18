@@ -1,5 +1,4 @@
 # USJT-2023/1-A3
-## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
 
 <br/>
 
@@ -15,6 +14,10 @@
 | Pedro Aureliano de Oliveira Silva | 822159140 |
 | Matheus de Oliveira Pereira | 821115715 |
 | Maikon Reverson Melo Lima | 822158937 |
+
+<br/>
+
+## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
 
 <br/>
 
