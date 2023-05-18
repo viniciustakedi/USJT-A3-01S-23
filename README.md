@@ -2,6 +2,12 @@
 ## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
 <br/>
 
+# Integrantes do grupo
+<strong>Nome:</strong> Vinicius Takedi Souza Brunelli
+*RA: 821147761
+
+<br/>
+
 ### Essa aplicação utiliza [Turborepo](https://turbo.build/) para compilação do código, e [TypeScript](https://www.typescriptlang.org/) para desenvolvimento.
 
 <br/>
