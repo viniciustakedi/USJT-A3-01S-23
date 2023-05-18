@@ -4,7 +4,6 @@
 
 # Integrantes do grupo
 - <strong>Nome:</strong> Vinicius Takedi Souza Brunelli
-<br/>
 * <strong>RA:</strong> 821147761
 
 <br/>
