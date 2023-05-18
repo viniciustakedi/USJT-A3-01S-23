@@ -1,7 +1,12 @@
 # USJT-2023/1-A3
 ## Projeto das UC desenvolvimento web e sistema distribuidos/mobile
+
 <br/>
+
 ## Integrantes do grupo
+
+<br/>
+
 |       Nome       |         RA        |
 |------------------|------------------|
 | Vinicius Takedi Souza Brunelli | 821147761 |
