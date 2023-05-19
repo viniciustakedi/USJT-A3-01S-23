@@ -6,17 +6,18 @@ type UserConsumer = {
   name: string
   spotify_id: string
   spotify_uri: string
+  top_tracks: any[]
 }
 
-export async function CreateUserConsumer() {
+export async function CreateTopTracksConsumer() {
   const consumer = await kafkaConsumer('USER_TRACKS')
   await consumer.run({
     eachMessage: async ({ message }) => {
       const messageToString = message.value.toString()
       const user = JSON.parse(messageToString) as UserConsumer
-      console.log('USER TOP TRACKS CONSUMER', user)
+      console.log(user.id)
     }
   })
 }
 
-CreateUserConsumer()
+CreateTopTracksConsumer()
