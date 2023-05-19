@@ -9,12 +9,12 @@ type UserConsumer = {
 }
 
 export async function CreateUserConsumer() {
-  const consumer = await kafkaConsumer('users')
+  const consumer = await kafkaConsumer('USER_TRACKS')
   await consumer.run({
     eachMessage: async ({ message }) => {
       const messageToString = message.value.toString()
       const user = JSON.parse(messageToString) as UserConsumer
-      console.log('CREATE USER CONSUMER', user)
+      console.log('USER TOP TRACKS CONSUMER', user)
     }
   })
 }

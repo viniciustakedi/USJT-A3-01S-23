@@ -9,3 +9,16 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Track {
+  id       Int      @id @default(autoincrement())
+  user_id  Int
+  spotify_id String
+  createdAt DateTime @default(now())
+  name     String
+  uri      String
+  album_name String
+  image_url    String
+  release_date DateTime
+  duration Int
+}
