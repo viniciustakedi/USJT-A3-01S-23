@@ -6,12 +6,12 @@ import { CreateUserDTO } from './dtos/CreateUserDTO'
 @Controller()
 export class AppController {
   constructor(
-    private readonly appService: AppService) {}
+    private readonly appService: AppService) { }
 
   @Post('create')
   async createUser(@Body() body: CreateUserDTO): Promise<User> {
-     const result = await this.appService.createUser(body)
+    const result = await this.appService.createUser(body)
 
-     return result
+    return result
   }
 }
