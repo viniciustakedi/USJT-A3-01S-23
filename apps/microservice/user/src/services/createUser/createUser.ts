@@ -7,7 +7,7 @@ export async function createUser(
   prisma: PrismaClient,
   kafkaSendMessage: KafkaSendMessage
 ) {
-  const { name, spotify_id, spotify_uri } = params
+  const { name, spotify_id, spotify_uri, image_url } = params
 
   const userAlreadyExists = await prisma.user.findFirst({
     where: {
@@ -16,11 +16,9 @@ export async function createUser(
   })
 
   if (userAlreadyExists) {
-    await kafkaSendMessage.execute('users', { message: {
+    await kafkaSendMessage.execute('USER_TRACKS', { message: {
       id: userAlreadyExists.id,
-      name: userAlreadyExists.name,
-      spotify_id: userAlreadyExists.spotify_id,
-      spotify_uri: userAlreadyExists.spotify_uri
+      tracks: JSON.stringify(params.tracks)
     }})
 
     return userAlreadyExists
@@ -30,15 +28,14 @@ export async function createUser(
     data: {
       name,
       spotify_id,
-      spotify_uri
+      spotify_uri,
+      image_url
     }
   })
 
-  await kafkaSendMessage.execute('users', { message: {
+  await kafkaSendMessage.execute('USER_TRACKS', { message: {
     id: user.id,
-    name: user.name,
-    spotify_id: user.spotify_id,
-    spotify_uri: user.spotify_uri
+    tracks: JSON.stringify(params.tracks)
   }})
 
   return user

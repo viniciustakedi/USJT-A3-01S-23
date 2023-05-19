@@ -14,6 +14,7 @@ model User {
   id        Int      @id @default(autoincrement())
   spotify_id String  @unique
   spotify_uri String
+  image_url String
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
