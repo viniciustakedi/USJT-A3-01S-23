@@ -1,0 +1,155 @@
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    min-height: 100vh;
+    background: url('../../assets/images/sign-in-bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .sign-in-title {
+        padding: 1rem 2rem;
+
+        #sign-in-title-text {
+            font-size: 5.375rem;
+            font-weight: 900;
+            color: #fff;
+            width: 52rem;
+            line-height: 100px;
+        }
+    }
+
+    .sign-in-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        #sign-in-button-login {
+            width: 22rem;
+            height: 3.75rem;
+            border-radius: 30px;
+            background-color: #1ED760;
+            color: #191414;
+            gap: .5rem;
+            font-size: 1.375rem;
+            font-weight: 700;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .sign-in-container {
+        .sign-in-title {
+            #sign-in-title-text {
+                font-size: 4.375rem;
+                width: 42rem;
+                line-height: 80px;
+            }
+        }
+
+        .sign-in-button {
+            #sign-in-button-login {
+                border: 2px solid #191414;
+            }
+        }
+    }
+}
+
+@media (max-width: 895px) {
+    .sign-in-container {
+        .sign-in-title {
+            #sign-in-title-text {
+                font-size: 3.875rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .sign-in-button {
+            justify-content: center;
+            align-items: center;
+
+            #sign-in-button-login {
+                #icon-spotify {
+                    color: #FFF
+                }
+
+                background-color: #191414;
+                color: #FFF;
+                border: 2px solid #191414;
+            }
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .sign-in-container {
+        padding: 2rem;
+
+        .sign-in-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0rem;
+
+            #sign-in-title-text {
+                font-size: 3.25rem;
+                line-height: 70px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 425px) {
+    .sign-in-container {
+        padding: 1rem;
+
+        .sign-in-title {
+            #sign-in-title-text {
+                font-size: 3rem;
+                line-height: 60px;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .sign-in-container {
+        .sign-in-title {
+            #sign-in-title-text {
+                font-size: 3rem;
+                line-height: 60px;
+            }
+        }
+
+        .sign-in-button {
+            #sign-in-button-login {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .sign-in-container {
+        .sign-in-button {
+            #sign-in-button-login {
+                font-size: 1.125rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .sign-in-container {
+        padding: .5rem;
+
+        .sign-in-button {
+            #sign-in-button-login {
+                font-size: 1rem;
+            }
+        }
+    }
+}

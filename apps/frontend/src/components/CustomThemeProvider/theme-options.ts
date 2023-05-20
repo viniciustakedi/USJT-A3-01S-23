@@ -19,7 +19,7 @@ const themeOptions: ThemeOptions = {
     }
   },
   typography: {
-    fontFamily: 'Open Sans, Roboto, sans-serif',
+    fontFamily: 'Inter, Open Sans, Roboto, sans-serif',
     h1: {
       fontSize: '38px',
       fontWeight: 600
