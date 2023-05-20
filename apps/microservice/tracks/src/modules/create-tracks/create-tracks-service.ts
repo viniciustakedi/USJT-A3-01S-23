@@ -6,8 +6,19 @@ export class CreateTracksService {
   constructor () {}
 
   async execute (params: CreateUserTracksParams): Promise<CreateUserTracksResult> {
-   const tracks = await prismaClient.$transaction(
-      params.tracks.map(track => prismaClient.track.create({
+
+    const existedTracks = await prismaClient.track.findMany({
+      where: {
+        userId: params.userId
+      }
+    })
+
+    const tracksToCreate = params.tracks.filter(track =>
+      track.spotifyId && !existedTracks.find(existedTrack => existedTrack.spotifyId === track.spotifyId)
+    )
+
+    const tracks = await prismaClient.$transaction(
+      tracksToCreate.map(track => prismaClient.track.create({
         data: {
           spotifyId: track.spotifyId,
           name: track.name,

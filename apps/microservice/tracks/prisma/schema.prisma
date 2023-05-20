@@ -20,4 +20,5 @@ model Track {
   albumName String
   imageUrl String
   duration Int
+  @@index([spotifyId, userId], name: "spotifyId")
 }
