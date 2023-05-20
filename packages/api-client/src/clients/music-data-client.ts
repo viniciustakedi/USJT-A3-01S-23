@@ -6,7 +6,7 @@ export class MusicDataClient {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: 'http://localhost:5000',
+      baseURL: 'http://localhost:5001',
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
     })
   }

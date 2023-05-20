@@ -17,7 +17,7 @@ export class UserClient {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: 'http://localhost:5001',
+      baseURL: 'http://localhost:5000',
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
     })
   }

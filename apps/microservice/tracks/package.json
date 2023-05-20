@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts ",
+    "dev": "tsx watch --no-cache src/server.ts ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "npx prisma generate"
   },

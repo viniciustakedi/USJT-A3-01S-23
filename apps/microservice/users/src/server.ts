@@ -3,9 +3,10 @@ import { router } from './modules/routes'
 import cors from 'cors'
 
 const app = express()
+const port = 5000
 
 app.use(cors())
 app.use(express.json())
 app.use(router)
 
-app.listen(5001, () => console.log('USERS SERVER RUNNING ON PORT 5001'))
+app.listen(port, () => console.log(`USERS SERVER RUNNING ON PORT ${port}`))

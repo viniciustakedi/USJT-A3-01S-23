@@ -13,7 +13,7 @@ router.get('/tracks/:id', async (req, res) => {
 })
 
 router.get('/tracks/health', async (req, res) => {
-  return res.status(200).send({ message: 'ok' })
+  return res.status(200).json({ message: 'ok' }).send()
 })
 
 export { router }
