@@ -1,5 +1,5 @@
 import express from 'express'
-import { router } from './modules/create-tracks/routes'
+import { router } from './modules/routes'
 
 const app = express()
 
