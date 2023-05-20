@@ -17,4 +17,8 @@ router.get('/users/:id', async (req, res) => {
   new GetUserByIdController().handle(req, res)
 })
 
+router.get('/users/health', async (req, res) => {
+  return res.status(200).send({ message: 'ok' })
+})
+
 export { router }
