@@ -12,6 +12,6 @@ export class MusicDataClient {
   }
 
   async helloWorld() {
-    return await this.axios.get('/hello-world')
+    return await this.axios.get('/tracks')
   }
 }

@@ -1,5 +1,5 @@
 import { Button, Grid, Typography } from '@mui/material'
-import { BsSpotify } from "react-icons/bs";
+import { BsSpotify } from 'react-icons/bs'
 import './sign-in-style.scss'
 
 const spotifyClientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID

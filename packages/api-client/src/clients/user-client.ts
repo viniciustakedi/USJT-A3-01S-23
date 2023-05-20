@@ -1,15 +1,15 @@
 import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
 import { SpotifyArtist } from '../types/spotify/SpotifyArtist'
-import { SpotifyTrack } from '../types/spotify/SpotifyTrack'
+import { SpotifyTrackResult } from '../types/spotify/SpotifyTrack'
 
 type CreateUserParams = {
   name: string
-  spotify_id: string
-  spotify_uri: string
-  image_url: string
+  spotifyId: string
+  uri: string
+  imageUrl: string
   artists: SpotifyArtist[]
-  tracks: SpotifyTrack[]
+  tracks: SpotifyTrackResult[]
 }
 
 export class UserClient {
@@ -23,6 +23,6 @@ export class UserClient {
   }
 
   async create(params: CreateUserParams) {
-    return await this.axios.post('/create', params)
+    return await this.axios.post('/users', params)
   }
 }

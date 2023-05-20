@@ -6,7 +6,10 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint:fix": "eslint *.ts --fix",
-    "migrate": "npm run --workspace=user migrate"
+    "migrate:users": "npm run --workspace=users migrate",
+    "migrate:tracks": "npm run --workspace=tracks migrate",
+    "generate:users": "npm run --workspace=users generate",
+    "generate:tracks": "npm run --workspace=tracks generate"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

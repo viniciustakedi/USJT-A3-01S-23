@@ -19,9 +19,9 @@ export default function DashboardPage() {
 
       await client.user.create({
         name: profile.display_name,
-        spotify_id: profile.id,
-        spotify_uri: profile.uri,
-        image_url: profile.images[0].url,
+        spotifyId: profile.id,
+        uri: profile.uri,
+        imageUrl: profile.images[0].url,
         artists: topArtists.items,
         tracks: topTracks.items.map(mapGetSpotifyTopTracksToResult)
       })
