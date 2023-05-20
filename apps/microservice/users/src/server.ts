@@ -8,4 +8,4 @@ app.use(cors())
 app.use(express.json())
 app.use(router)
 
-app.listen(5001)
+app.listen(5001, () => console.log('USERS SERVER RUNNING ON PORT 5001'))
