@@ -30,4 +30,8 @@ export class UserClient {
   async getUserById(id: number): Promise<UserResult> {
     return (await this.axios.get(`/users/${id}`)).data
   }
+
+  async getUsersPage(): Promise<UserResult[]> {
+    return (await this.axios.get('/users')).data
+  }
 }

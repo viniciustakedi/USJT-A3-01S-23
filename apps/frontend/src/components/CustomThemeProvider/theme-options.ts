@@ -6,7 +6,7 @@ const themeOptions: ThemeOptions = {
       main: '#1DB954'
     },
     secondary: {
-      main: '#D3D3D9'
+      main: '#191414'
     },
     success: {
       main: '#0A7E22'
@@ -16,6 +16,9 @@ const themeOptions: ThemeOptions = {
     },
     error: {
       main: '#FD314D'
+    },
+    background: {
+      default: '#191414'
     }
   },
   typography: {
@@ -34,6 +37,14 @@ const themeOptions: ThemeOptions = {
     }
   },
   components: {
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          width: '80px',
+          height: '80px'
+        }
+      }
+    },
     MuiButton: {
       variants: [
         {

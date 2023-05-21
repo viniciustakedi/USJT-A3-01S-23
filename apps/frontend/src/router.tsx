@@ -7,11 +7,16 @@ import UserPage from './pages/UserPage/UserPage'
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
     children: [
       { path: '/', element: <SignInPage />},
       { path: '/auth', element: <AuthCreateOrReturn />},
-      { path: '/usuario', element: <UserPage /> }
+    ]
+  },
+  {
+    path: '/usuario',
+    element: <Layout />,
+    children: [
+      { path: '/usuario', element: <UserPage />},
     ]
   }
 ])
