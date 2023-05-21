@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid, LinearProgress, Stack, Typography } from '@mui/material'
+import { Box, Chip, Grid, LinearProgress, Stack, Typography } from '@mui/material'
 import { useCurrentUser } from '../../hooks/use-current-user'
 import UserCard from '../../components/UserCard/UserCard'
 import { useAsync } from 'react-async-hook'
@@ -24,6 +24,40 @@ export default function UserPage() {
           variant={'static'}
           redirectUrl={user.id.toString()}
         />
+        <Box
+          sx={{
+            backgroundColor: '#5B5B5B',
+            width: '100%',
+            padding: '16px',
+            borderRadius: '16px',
+            mt: '20px'
+          }}
+        >
+          <Typography variant='h2' mb='16px' color='white'>
+            Suas musicas favoritas:
+          </Typography>
+          {tracks.map(track => (
+            <Chip
+              key={track.id}
+              label={track.name}
+              sx={{
+                color: 'white'
+              }}
+            />
+          ))}
+        </Box>
+        <Box
+          sx={{
+            mt: '20px'
+          }}
+        >
+          <Typography variant='h2' color='white'>
+            Artistas mais ouvidos:
+          </Typography>
+          <Grid columns={8}>
+
+          </Grid>
+        </Box>
       </Grid>
       <Grid item xs={12} md={6}>
         <Box
