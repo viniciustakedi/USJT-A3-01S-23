@@ -1,9 +1,10 @@
 import { Grid, LinearProgress } from '@mui/material'
-import UserCompareBox from '../../components/UserCompareBox'
+import UserDataBox from '../../components/UserDataBox'
 import { useCurrentUser } from '../../hooks/use-current-user'
 import { useClient } from '../../hooks/use-client'
 import { useAsync } from 'react-async-hook'
 import { useParams } from 'react-router-dom'
+import UsersCompareDataBox from '../../components/UsersCompareDataBox'
 
 export default function CompareDataPage () {
   const { user, tracks } = useCurrentUser()
@@ -21,7 +22,7 @@ export default function CompareDataPage () {
   return (
     <Grid container spacing={8}>
       <Grid item xs={12} md={6}>
-        <UserCompareBox
+        <UserDataBox
           name={user.name}
           imageUrl={user.imageUrl}
           tracks={tracks}
@@ -30,7 +31,7 @@ export default function CompareDataPage () {
       <Grid item xs={12} md={6}>
         {getCompareUser.loading && <LinearProgress />}
         {compareUserResult && (
-          <UserCompareBox
+          <UserDataBox
             name={compareUserResult.user.name}
             imageUrl={compareUserResult.user.imageUrl}
             tracks={compareUserResult.tracks}
@@ -38,9 +39,8 @@ export default function CompareDataPage () {
         )}
       </Grid>
       <Grid item xs={12}>
-
+        <UsersCompareDataBox />
       </Grid>
-
     </Grid>
   )
 }

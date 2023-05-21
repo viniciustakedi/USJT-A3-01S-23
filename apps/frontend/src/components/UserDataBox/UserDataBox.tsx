@@ -8,7 +8,7 @@ export type UserCompareBoxProps = {
   tracks: TrackResult[]
 }
 
-export default function UserCompareBox(props: UserCompareBoxProps) {
+export default function UserDataBox(props: UserCompareBoxProps) {
   return (
     <Box
       sx={{
