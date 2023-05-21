@@ -2,6 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
 import { SpotifyArtist } from '../types/spotify/SpotifyArtist'
 import { SpotifyTrackResult } from '../types/spotify/SpotifyTrack'
+import { UserResult } from '../types/users/UserResult'
 
 type CreateUserParams = {
   name: string
@@ -22,7 +23,11 @@ export class UserClient {
     })
   }
 
-  async create(params: CreateUserParams) {
-    return await this.axios.post('/users', params)
+  async create(params: CreateUserParams): Promise<UserResult> {
+    return (await this.axios.post('/users', params)).data
+  }
+
+  async getUserById(id: number): Promise<UserResult> {
+    return (await this.axios.get(`/users/${id}`)).data
   }
 }

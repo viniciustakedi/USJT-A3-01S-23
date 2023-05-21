@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
+import { TrackResult } from '../types/tracks/TrackResult'
 
-export class MusicDataClient {
+export class TracksClient {
   private axios: AxiosInstance
 
   constructor() {
@@ -11,7 +12,7 @@ export class MusicDataClient {
     })
   }
 
-  async helloWorld() {
-    return await this.axios.get('/tracks')
+  async getUserTracks(id: number): Promise<TrackResult> {
+    return (await this.axios.get(`/tracks/${id}`)).data
   }
 }

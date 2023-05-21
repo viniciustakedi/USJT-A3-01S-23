@@ -1,15 +1,15 @@
-import { MusicDataClient } from './clients/music-data-client'
+import { TracksClient } from './clients/tracks-client'
 import { UserClient } from './clients/user-client'
 import { SpotifyClient } from './clients/spotify-client'
 
 export class ApiClient {
   user: UserClient
-  musicData: MusicDataClient
+  tracks: TracksClient
   spotify: SpotifyClient
 
   constructor() {
     this.user = new UserClient()
-    this.musicData = new MusicDataClient()
+    this.tracks = new TracksClient()
     this.spotify = new SpotifyClient()
   }
 }
