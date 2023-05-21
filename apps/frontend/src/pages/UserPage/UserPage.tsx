@@ -64,7 +64,7 @@ export default function UserPage() {
           sx={{
             backgroundColor: 'primary.main',
             borderRadius: '16px',
-            p: '50px',
+            p: { xs: '8px', md: '30px'},
             minHeight: '100vh'
           }}
         >

@@ -3,7 +3,7 @@ import { Avatar, ButtonBase, Grid, Stack, Typography, Link } from '@mui/material
 type UserCardProps = {
   name: string
   imageUrl: string
-  id: number
+  id?: number
   variant: 'redirect' | 'static'
   dark?: boolean
   redirectUrl?: string

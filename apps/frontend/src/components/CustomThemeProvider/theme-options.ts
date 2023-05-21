@@ -29,7 +29,7 @@ const themeOptions: ThemeOptions = {
     },
     h2: {
       fontSize: '30px',
-      fontWeight: 500
+      fontWeight: 500,
     },
     h3: {
       fontSize: '22px',
@@ -37,6 +37,13 @@ const themeOptions: ThemeOptions = {
     }
   },
   components: {
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          fontSize: '16px'
+        }
+      }
+    },
     MuiAvatar: {
       styleOverrides: {
         root: {

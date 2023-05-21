@@ -12,7 +12,7 @@ export class TracksClient {
     })
   }
 
-  async getUserTracks(id: number): Promise<TrackResult> {
+  async getUserTracks(id: number): Promise<TrackResult[]> {
     return (await this.axios.get(`/tracks/${id}`)).data
   }
 }
