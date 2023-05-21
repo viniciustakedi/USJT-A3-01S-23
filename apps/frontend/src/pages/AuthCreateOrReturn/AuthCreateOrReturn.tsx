@@ -3,6 +3,7 @@ import { useClient } from '../../hooks/use-client'
 import { useAsync } from 'react-async-hook'
 import { mapGetSpotifyTopTracksToResult } from '../../common/mapGetSpotifyTopTracksToResult'
 import { useEffect, useState } from 'react'
+import { CircularProgress, Grid, Typography } from '@mui/material'
 
 export default function AuthCreateOrReturn() {
   const client = useClient()
@@ -45,7 +46,22 @@ export default function AuthCreateOrReturn() {
   }, [mounted])
 
   return (
-    <>
-    </>
+    <Grid
+      container
+      direction='row'
+      justifyContent='center'
+      alignItems='center'
+      sx={{
+        height: '100vh',
+        backgroundColor: '#191414'
+      }}
+    >
+      <Grid item textAlign='center'>
+        <Typography variant='h2' mb={4} sx={{ color: 'white' }}>
+          Aguarde um instante, iremos te redirecionar
+        </Typography>
+        <CircularProgress size={60}/>
+      </Grid>
+    </Grid>
   )
 }
