@@ -1,10 +1,12 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "spotifyId" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "uri" TEXT NOT NULL,
-    "imageUrl" TEXT NOT NULL
+    "imageUrl" TEXT NOT NULL,
+
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
