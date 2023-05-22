@@ -10,7 +10,7 @@ export type ArtistAvatarTooltipProps = {
 export default function ArtistAvatarTooltip(props: ArtistAvatarTooltipProps) {
   return (
     <Tooltip key={props.id} title={props.name}>
-      <ButtonBase href={props.uri}>
+      <ButtonBase href={props.uri} sx={{ borderRadius: '100%' }}>
         <Avatar src={props.imageUrl} />
       </ButtonBase>
     </Tooltip>

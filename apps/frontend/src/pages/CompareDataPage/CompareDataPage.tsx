@@ -45,7 +45,8 @@ export default function CompareDataPage () {
         )}
       </Grid>
       <Grid item xs={12}>
-        <UsersCompareDataBox />
+        {getCompareUser.loading && <LinearProgress />}
+        {compareUserResult && <UsersCompareDataBox />}
       </Grid>
     </Grid>
   )
