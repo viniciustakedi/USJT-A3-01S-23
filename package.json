@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "build:frontend": "turbo run build --scope=frontend",
+    "build:frontend": "turbo run build --scope=frontend --include-dependencies",
+    "start:frontend": "npm run --workspace=frontend preview",
     "dev": "turbo run dev --no-daemon",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
