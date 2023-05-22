@@ -32,9 +32,11 @@ export default function AuthCreateOrReturn() {
 
     const user = await client.user.getUserById(createOrUpdateUser.id)
     const tracks = await client.tracks.getUserTracks(createOrUpdateUser.id)
+    const artists = await client.artists.getArtistsByUserId(createOrUpdateUser.id)
 
-    localStorage.setItem('user', JSON.stringify(user))
-    localStorage.setItem('tracks', JSON.stringify(tracks))
+    sessionStorage.setItem('user', JSON.stringify(user))
+    sessionStorage.setItem('tracks', JSON.stringify(tracks))
+    sessionStorage.setItem('artists', JSON.stringify(artists))
 
     navigate('/usuario')
   })

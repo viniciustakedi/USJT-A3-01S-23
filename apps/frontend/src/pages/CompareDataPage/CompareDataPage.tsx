@@ -7,17 +7,21 @@ import { useParams } from 'react-router-dom'
 import UsersCompareDataBox from '../../components/UsersCompareDataBox'
 
 export default function CompareDataPage () {
-  const { user, tracks } = useCurrentUser()
+  const { user, tracks, artists } = useCurrentUser()
   const { id } = useParams<{ id: string }>()
   const client = useClient()
 
   const getCompareUser = useAsync(async () => {
     const user = await client.user.getUserById(parseInt(id!))
     const tracks = await client.tracks.getUserTracks(parseInt(id!))
-    return { user, tracks }
+    const artists = await client.artists.getArtistsByUserId(parseInt(id!))
+    return { user, tracks, artists }
   }, [])
 
   const compareUserResult = getCompareUser.result
+
+  const currentUserTop5Artists = artists.slice(0, 5)
+  const compareUserTop5Artists = compareUserResult?.artists.slice(0, 5)
 
   return (
     <Grid container spacing={8}>
@@ -26,6 +30,7 @@ export default function CompareDataPage () {
           name={user.name}
           imageUrl={user.imageUrl}
           tracks={tracks}
+          artists={currentUserTop5Artists}
         />
       </Grid>
       <Grid item xs={12} md={6}>
@@ -35,6 +40,7 @@ export default function CompareDataPage () {
             name={compareUserResult.user.name}
             imageUrl={compareUserResult.user.imageUrl}
             tracks={compareUserResult.tracks}
+            artists={compareUserTop5Artists || []}
           />
         )}
       </Grid>

@@ -3,9 +3,10 @@ import { useCurrentUser } from '../../hooks/use-current-user'
 import UserCard from '../../components/UserCard/UserCard'
 import { useAsync } from 'react-async-hook'
 import { useClient } from '../../hooks/use-client'
+import ArtistAvatarTooltip from '../../components/ArtistAvatarTooltip'
 
 export default function UserPage() {
-  const { user, tracks } = useCurrentUser()
+  const { user, tracks, artists } = useCurrentUser()
   const client = useClient()
 
   const getUserPage = useAsync(async () => {
@@ -51,12 +52,25 @@ export default function UserPage() {
             mt: '20px'
           }}
         >
-          <Typography variant='h2' color='white'>
+          <Typography variant='h2' color='white' mb='16px'>
             Artistas mais ouvidos:
           </Typography>
-          <Grid columns={8}>
-
+          <Grid container gap={2}>
+            {artists.map(artist => (
+              <ArtistAvatarTooltip
+                key={artist.id}
+                name={artist.name}
+                imageUrl={artist.imageUrl}
+                id={artist.id}
+                uri={artist.uri}
+              />
+            ))}
           </Grid>
+        </Box>
+        <Box>
+          <Typography variant='h2' color='white' mt='20px'>
+            Generos musicais que você curte:
+          </Typography>
         </Box>
       </Grid>
       <Grid item xs={12} md={6}>

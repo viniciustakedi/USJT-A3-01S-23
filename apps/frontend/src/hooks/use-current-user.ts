@@ -1,10 +1,12 @@
+import { ArtistsResult } from 'api-client/src/types/artists/ArtistsResult'
 import { TrackResult } from 'api-client/src/types/tracks/TrackResult'
 import { UserResult } from 'api-client/src/types/users/UserResult'
 import { useNavigate } from 'react-router-dom'
 
 export function useCurrentUser() {
-  const getLocalStorageUser = localStorage.getItem('user');
-  const getLocalStorageTracks = localStorage.getItem('tracks');
+  const getLocalStorageUser = sessionStorage.getItem('user');
+  const getLocalStorageTracks = sessionStorage.getItem('tracks');
+  const getLocalStorageArtists = sessionStorage.getItem('artists');
   const navigate = useNavigate()
 
   if (!getLocalStorageUser) {
@@ -13,6 +15,7 @@ export function useCurrentUser() {
 
   const user = JSON.parse(getLocalStorageUser!) as UserResult;
   const tracks = JSON.parse(getLocalStorageTracks!) as TrackResult[];
+  const artists = JSON.parse(getLocalStorageArtists!) as ArtistsResult[];
 
-  return { user, tracks };
+  return { user, tracks, artists };
 }

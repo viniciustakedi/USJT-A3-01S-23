@@ -1,11 +1,14 @@
-import { Avatar, Box, Chip, Stack, Typography } from '@mui/material'
+import { Box, Chip, Stack, Typography } from '@mui/material'
 import UserCard from '../UserCard/UserCard'
 import { TrackResult } from 'api-client/src/types/tracks/TrackResult'
+import { ArtistsResult } from 'api-client/src/types/artists/ArtistsResult'
+import ArtistAvatarTooltip from '../ArtistAvatarTooltip/ArtistAvatarTooltip'
 
 export type UserCompareBoxProps = {
   name: string
   imageUrl: string
   tracks: TrackResult[]
+  artists: ArtistsResult[]
 }
 
 export default function UserDataBox(props: UserCompareBoxProps) {
@@ -56,11 +59,15 @@ export default function UserDataBox(props: UserCompareBoxProps) {
           justifyContent='center'
           flexWrap='wrap'
         >
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
-          <Avatar />
+          {props.artists.map(artist => (
+            <ArtistAvatarTooltip
+              key={artist.id}
+              name={artist.name}
+              imageUrl={artist.imageUrl}
+              id={artist.id}
+              uri={artist.uri}
+            />
+          ))}
         </Stack>
       </Box>
     </Box>
