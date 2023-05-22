@@ -20,6 +20,10 @@ export class CreateUserService {
         userId: userExists.id,
         tracks: params.tracks
       })
+      await kafkaProducer.execute('CREATE_USER_ARTISTS', {
+        userId: userExists.id,
+        artists: params.artists
+      })
       return userExists
     }
 
@@ -35,6 +39,10 @@ export class CreateUserService {
     await kafkaProducer.execute('CREATE_USER_TRACKS', {
       userId: user.id,
       tracks: params.tracks
+    })
+    await kafkaProducer.execute('CREATE_USER_ARTISTS', {
+      userId: user.id,
+      artists: params.artists
     })
 
     return user

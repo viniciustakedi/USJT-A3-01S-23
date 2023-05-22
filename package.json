@@ -8,6 +8,8 @@
     "lint:fix": "eslint *.ts --fix",
     "migrate:users": "npm run --workspace=users migrate",
     "migrate:tracks": "npm run --workspace=tracks migrate",
+    "migrate:artists": "npm run --workspace=artists migrate",
+    "generate:artists": "npm run --workspace=artists generate",
     "generate:users": "npm run --workspace=users generate",
     "generate:tracks": "npm run --workspace=tracks generate"
   },

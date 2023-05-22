@@ -15,7 +15,6 @@ export class KafkaSendMessage {
     })
 
     console.log(`MESSAGE SEND TO TOPIC ${topic}`)
-    console.log(payload)
 
     await producer.disconnect()
   }

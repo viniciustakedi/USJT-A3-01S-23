@@ -7,3 +7,11 @@ export type SpotifyArtist = {
   id: string
   uri: string
 }
+
+export type SpotifyArtistResult = {
+  spotifyId: string
+  name: string
+  uri: string
+  imageUrl: string
+  genres: string[]
+}

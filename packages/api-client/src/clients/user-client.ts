@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios'
 import qs from 'qs'
-import { SpotifyArtist } from '../types/spotify/SpotifyArtist'
+import { SpotifyArtistResult } from '../types/spotify/SpotifyArtist'
 import { SpotifyTrackResult } from '../types/spotify/SpotifyTrack'
 import { UserResult } from '../types/users/UserResult'
 
@@ -9,7 +9,7 @@ type CreateUserParams = {
   spotifyId: string
   uri: string
   imageUrl: string
-  artists: SpotifyArtist[]
+  artists: SpotifyArtistResult[]
   tracks: SpotifyTrackResult[]
 }
 

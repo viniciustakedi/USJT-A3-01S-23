@@ -4,6 +4,7 @@ import { useAsyncCallback } from 'react-async-hook'
 import { mapGetSpotifyTopTracksToResult } from '../../common/mapGetSpotifyTopTracksToResult'
 import { useEffect } from 'react'
 import { CircularProgress, Grid, Typography } from '@mui/material'
+import { mapGetSpotifyArtistsToResult } from '../../common/mapGetSpotifyArtistsToResult'
 
 export default function AuthCreateOrReturn() {
   const client = useClient()
@@ -23,9 +24,11 @@ export default function AuthCreateOrReturn() {
       spotifyId: profile.id,
       uri: profile.uri,
       imageUrl: profile.images[0].url,
-      artists: topArtists.items,
+      artists: topArtists.items.map(mapGetSpotifyArtistsToResult),
       tracks: topTracks.items.map(mapGetSpotifyTopTracksToResult)
     })
+
+    console.log(topArtists.items.map(mapGetSpotifyArtistsToResult))
 
     const user = await client.user.getUserById(createOrUpdateUser.id)
     const tracks = await client.tracks.getUserTracks(createOrUpdateUser.id)
