@@ -19,4 +19,5 @@ model Artist {
   imageUrl String
   spotifyId String
   userId Int
+  createdAt DateTime @default(now())
 }
