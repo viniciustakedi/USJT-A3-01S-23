@@ -8,7 +8,11 @@ export class GetTracksByUserIdService {
     const tracks = await prismaClient.track.findMany({
       where: {
         userId: id
-      }
+      },
+      orderBy: {
+        createdAt: 'desc'
+      },
+      take: 20
     })
 
     const tracksResult: TrackResult[] = tracks.map(track => ({
