@@ -39,7 +39,7 @@ export class SpotifyClient {
   }
 
   async getUserTopArtists (accessToken: string): Promise<SpotifyUserTopArtistsResult> {
-    return (await this.spotifyApi.get('/me/top/artists', {
+    return (await this.spotifyApi.get('/me/top/artists?time_range=short_term', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }
@@ -47,7 +47,7 @@ export class SpotifyClient {
   }
 
   async getUserTopTracks (accessToken: string): Promise<SpotifyUserTracksResult> {
-    return (await this.spotifyApi.get('/me/top/tracks', {
+    return (await this.spotifyApi.get('/me/top/tracks?time_range=short_term', {
       headers: {
         'Authorization': `Bearer ${accessToken}`
       }
