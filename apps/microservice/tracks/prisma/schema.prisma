@@ -20,5 +20,6 @@ model Track {
   albumName String
   imageUrl String
   duration Int
+  createdAt DateTime @default(now())
   @@index([spotifyId, userId], name: "spotifyId")
 }
