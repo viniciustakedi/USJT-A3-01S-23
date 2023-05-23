@@ -7,9 +7,10 @@ export function useCurrentUser() {
   const getLocalStorageUser = sessionStorage.getItem('user');
   const getLocalStorageTracks = sessionStorage.getItem('tracks');
   const getLocalStorageArtists = sessionStorage.getItem('artists');
+  const userIsAuth = Boolean(sessionStorage.getItem('userIsAuth'));
   const navigate = useNavigate()
 
-  if (!getLocalStorageUser) {
+  if (!userIsAuth) {
     navigate('/')
   }
 

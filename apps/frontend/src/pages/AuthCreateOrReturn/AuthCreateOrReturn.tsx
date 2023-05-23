@@ -37,6 +37,7 @@ export default function AuthCreateOrReturn() {
     sessionStorage.setItem('user', JSON.stringify(user))
     sessionStorage.setItem('tracks', JSON.stringify(tracks))
     sessionStorage.setItem('artists', JSON.stringify(artists))
+    sessionStorage.setItem('userIsAuth', 'true')
 
     navigate('/usuario')
   })
