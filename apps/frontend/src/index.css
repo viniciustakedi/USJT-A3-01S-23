@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Sobrescrevendo classes do tremor para adaptar cores ao ds */
+.tremor-BarList-bar {
+  @apply bg-[#1db954]
+}
+
+.tremor-BarList-barText {
+  @apply text-black font-semibold
+}
+
+.tremor-BarList-labelText {
+  @apply hidden
+}
