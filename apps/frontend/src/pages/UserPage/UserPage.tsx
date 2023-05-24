@@ -23,9 +23,12 @@ export default function UserPage() {
       return acc
     }, {} as { [key: string]: number });
 
-    return Object.entries(genresCount)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10);
+    const result = Object.keys(genresCount).map(key => ({
+      name: key,
+      value: genresCount[key]
+    }))
+
+    return result.sort((a, b) => b.value - a.value).slice(0, 10)
   }
 
   const getUserPage = useAsync(async () => {
@@ -72,7 +75,7 @@ export default function UserPage() {
           <Typography variant='h2' color='white' mb='16px'>
             Artistas mais ouvidos:
           </Typography>
-          <Grid container gap={2}>
+          <Grid container justifyContent='center' gap={2}>
             {
               artists.slice(0, 18).map(artist => (
                 <ArtistAvatarTooltip
