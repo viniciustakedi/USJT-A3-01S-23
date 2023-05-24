@@ -54,7 +54,7 @@ export default function UserPage() {
           <Typography variant='h2' mb='16px' color='white'>
             Suas musicas favoritas:
           </Typography>
-          <Grid container gap={2}>
+          <Grid container gap={1}>
             {
               tracks.map(track => (
                 <Chip
@@ -99,7 +99,7 @@ export default function UserPage() {
             backgroundColor: 'primary.main',
             borderRadius: '16px',
             p: { xs: '8px', md: '30px' },
-            minHeight: '92vh'
+            minHeight: '100%'
           }}
         >
           <Typography variant='h1' textAlign='center' mb='16px' color="#FFF">
