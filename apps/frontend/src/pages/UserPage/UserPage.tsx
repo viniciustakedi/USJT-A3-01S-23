@@ -4,16 +4,33 @@ import UserCard from '../../components/UserCard/UserCard'
 import { useAsync } from 'react-async-hook'
 import { useClient } from '../../hooks/use-client'
 import ArtistAvatarTooltip from '../../components/ArtistAvatarTooltip'
+import GenreChart from '../../components/GenreChart/GenreChart'
 
 export default function UserPage() {
   const { user, tracks, artists } = useCurrentUser()
   const client = useClient()
 
-  const getUserPage = useAsync(async () => {
-    const users = await client.user.getUsersPage()
+  const getGenres = () => {
+    const genres = artists.map(artist => artist.genres);
+    const genresCount = genres.reduce((acc, cur) => {
+      cur.forEach(genre => {
+        if (acc[genre]) {
+          acc[genre] += 1
+        } else {
+          acc[genre] = 1
+        }
+      })
+      return acc
+    }, {} as { [key: string]: number });
 
-    return users
-  },[])
+    return Object.entries(genresCount)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+  }
+
+  const getUserPage = useAsync(async () => {
+    return await client.user.getUsersPage();
+  }, [])
 
   return (
     <Grid container spacing='60px'>
@@ -31,46 +48,49 @@ export default function UserPage() {
             width: '100%',
             padding: '16px',
             borderRadius: '16px',
-            mt: '20px'
+            mt: '15px'
           }}
         >
           <Typography variant='h2' mb='16px' color='white'>
             Suas musicas favoritas:
           </Typography>
-          {tracks.map(track => (
-            <Chip
-              key={track.id}
-              label={track.name}
-              sx={{
-                color: 'white'
-              }}
-            />
-          ))}
+          <Grid container gap={2}>
+            {
+              tracks.map(track => (
+                <Chip
+                  key={track.id}
+                  label={track.name}
+                  sx={{
+                    color: 'white'
+                  }}
+                />
+              ))
+            }
+          </Grid>
         </Box>
-        <Box
-          sx={{
-            mt: '20px'
-          }}
-        >
+        <Box sx={{ mt: '35px' }}>
           <Typography variant='h2' color='white' mb='16px'>
             Artistas mais ouvidos:
           </Typography>
           <Grid container gap={2}>
-            {artists.map(artist => (
-              <ArtistAvatarTooltip
-                key={artist.id}
-                name={artist.name}
-                imageUrl={artist.imageUrl}
-                id={artist.id}
-                uri={artist.uri}
-              />
-            ))}
+            {
+              artists.slice(0, 18).map(artist => (
+                <ArtistAvatarTooltip
+                  key={artist.id}
+                  name={artist.name}
+                  imageUrl={artist.imageUrl}
+                  id={artist.id}
+                  uri={artist.uri}
+                />
+              ))
+            }
           </Grid>
         </Box>
-        <Box>
-          <Typography variant='h2' color='white' mt='20px'>
+        <Box sx={{ mt: '35px' }}>
+          <Typography variant='h2' color='white' mt='20px' sx={{ mb: '20px' }}>
             Generos musicais que você curte:
           </Typography>
+          <GenreChart data={getGenres()} />
         </Box>
       </Grid>
       <Grid item xs={12} md={6}>
@@ -78,11 +98,11 @@ export default function UserPage() {
           sx={{
             backgroundColor: 'primary.main',
             borderRadius: '16px',
-            p: { xs: '8px', md: '30px'},
-            minHeight: '100vh'
+            p: { xs: '8px', md: '30px' },
+            minHeight: '92vh'
           }}
         >
-          <Typography variant='h1' textAlign='center' mb='16px'>
+          <Typography variant='h1' textAlign='center' mb='16px' color="#FFF">
             Comparar com amigos
           </Typography>
           {getUserPage.loading && <LinearProgress color='secondary' />}
