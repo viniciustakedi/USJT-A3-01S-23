@@ -8,7 +8,12 @@ module.exports = {
     "../../node_modules/@tremor/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1db954',
+        secondary: '#191414'
+      }
+    },
   },
   plugins: [],
 }
