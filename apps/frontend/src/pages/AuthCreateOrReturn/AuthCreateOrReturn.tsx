@@ -49,22 +49,13 @@ export default function AuthCreateOrReturn() {
   }, [window.location])
 
   return (
-    <Grid
-      container
-      direction='row'
-      justifyContent='center'
-      alignItems='center'
-      sx={{
-        height: '100vh',
-        backgroundColor: '#191414'
-      }}
-    >
-      <Grid item textAlign='center'>
-        <Typography variant='h2' mb={4} sx={{ color: 'white' }}>
-          Aguarde um instante, iremos te redirecionar
-        </Typography>
-        <CircularProgress size={60}/>
-      </Grid>
-    </Grid>
+    <>
+      <div className='bg-secondary container mx-auto w-full flex items-center justify-center text-center h-screen'>
+        <div>
+          <h2 className='text-4xl text-white mb-4'>Aguarde um instante, você será redirecionado</h2>
+          <CircularProgress size={60}/>
+        </div>
+      </div>
+    </>
   )
 }
