@@ -4,7 +4,7 @@
     "build": "turbo run build",
     "build:frontend": "turbo run build --scope=frontend --include-dependencies",
     "start:frontend": "npm run --workspace=frontend preview",
-    "dev": "turbo run dev --no-daemon",
+    "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint:fix": "eslint *.ts --fix",
