@@ -3,7 +3,7 @@ import { useClient } from '../../hooks/use-client'
 import { useAsyncCallback } from 'react-async-hook'
 import { mapGetSpotifyTopTracksToResult } from '../../common/mapGetSpotifyTopTracksToResult'
 import { useEffect } from 'react'
-import { CircularProgress, Grid, Typography } from '@mui/material'
+import { CircularProgress } from '@mui/material'
 import { mapGetSpotifyArtistsToResult } from '../../common/mapGetSpotifyArtistsToResult'
 
 export default function AuthCreateOrReturn() {
@@ -50,9 +50,9 @@ export default function AuthCreateOrReturn() {
 
   return (
     <>
-      <div className='bg-secondary container mx-auto w-full flex items-center justify-center text-center h-screen'>
+      <div className='container mx-auto w-full flex items-center justify-center text-center h-screen'>
         <div>
-          <h2 className='text-4xl text-white mb-4'>Aguarde um instante, você será redirecionado</h2>
+          <h2 className='mb-6'>Aguarde um instante, você será redirecionado</h2>
           <CircularProgress size={60}/>
         </div>
       </div>

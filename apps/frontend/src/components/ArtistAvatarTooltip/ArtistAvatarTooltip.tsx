@@ -1,4 +1,5 @@
-import { Tooltip, ButtonBase, Avatar } from '@mui/material'
+import { Tooltip, ButtonBase } from '@mui/material'
+import Avatar from '../Avatar'
 
 export type ArtistAvatarTooltipProps = {
   id: number
@@ -11,7 +12,7 @@ export default function ArtistAvatarTooltip(props: ArtistAvatarTooltipProps) {
   return (
     <Tooltip key={props.id} title={props.name}>
       <ButtonBase href={props.uri} sx={{ borderRadius: '100%' }}>
-        <Avatar src={props.imageUrl} />
+        <Avatar imageUrl={props.imageUrl} />
       </ButtonBase>
     </Tooltip>
   )

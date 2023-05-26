@@ -4,14 +4,31 @@
 
 
 /* Sobrescrevendo classes do tremor para adaptar cores ao ds */
+
+#root {
+  @apply bg-black min-h-screen
+}
+
 .tremor-BarList-bar {
   @apply bg-[#1db954]
 }
 
 .tremor-BarList-barText {
-  @apply text-black font-semibold
+  @apply text-secondary font-semibold
 }
 
 .tremor-BarList-labelText {
   @apply hidden
+}
+
+@layer base {
+  h2 {
+    @apply text-3xl font-semibold text-gray-100
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-baseBlack rounded-lg shadow-lg p-4
+  }
 }

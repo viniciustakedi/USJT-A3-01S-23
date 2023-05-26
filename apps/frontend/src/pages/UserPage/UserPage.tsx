@@ -1,10 +1,12 @@
-import { Box, Chip, Grid, LinearProgress, Stack, Typography } from '@mui/material'
+import { LinearProgress } from '@mui/material'
 import { useCurrentUser } from '../../hooks/use-current-user'
 import UserCard from '../../components/UserCard/UserCard'
 import { useAsync } from 'react-async-hook'
 import { useClient } from '../../hooks/use-client'
-import ArtistAvatarTooltip from '../../components/ArtistAvatarTooltip'
 import GenreChart from '../../components/GenreChart/GenreChart'
+import Badge from '../../components/Badge'
+import ArtistAvatarTooltip from '../../components/ArtistAvatarTooltip'
+import { FaUserFriends } from 'react-icons/fa'
 
 export default function UserPage() {
   const { user, tracks, artists } = useCurrentUser()
@@ -36,46 +38,36 @@ export default function UserPage() {
   }, [])
 
   return (
-    <Grid container spacing='60px'>
-      <Grid item xs={12} md={6}>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-2'>
+      <div className=''>
         <UserCard
           name={user.name}
           imageUrl={user.imageUrl}
           id={user.id}
           variant={'static'}
           redirectUrl={user.id.toString()}
+          isHeader={true}
         />
-        <Box
-          sx={{
-            backgroundColor: '#5B5B5B',
-            width: '100%',
-            padding: '16px',
-            borderRadius: '16px',
-            mt: '15px'
-          }}
-        >
-          <Typography variant='h2' mb='16px' color='white'>
+        <div className='bg-baseBlack mt-2 rounded-lg p-4'>
+          <h2 className='mb-6'>
             Suas musicas favoritas:
-          </Typography>
-          <Grid container gap={1}>
+          </h2>
+          <div className='flex flex-wrap gap-2'>
             {
               tracks.map(track => (
-                <Chip
+                <Badge
                   key={track.id}
                   label={track.name}
-                  sx={{
-                    color: 'white'
-                  }}
                 />
               ))
             }
-          </Grid>
-        </Box>
-        <Box sx={{ mt: '35px' }}>
-          <Typography variant='h2' color='white' mb='16px'>
+          </div>
+        </div>
+        <div className='p-4'>
+          <h2 className='mb-6'>
             Artistas mais ouvidos:
-          </Typography>
-          <Grid container justifyContent='center' gap={2}>
+          </h2>
+          <div className='flex flex-wrap gap-4 justify-center'>
             {
               artists.slice(0, 18).map(artist => (
                 <ArtistAvatarTooltip
@@ -87,30 +79,26 @@ export default function UserPage() {
                 />
               ))
             }
-          </Grid>
-        </Box>
-        <Box sx={{ mt: '35px' }}>
-          <Typography variant='h2' color='white' mt='20px' sx={{ mb: '20px' }}>
+          </div>
+        </div>
+        <div className='p-4'>
+          <h2>
             Generos musicais que você curte:
-          </Typography>
+          </h2>
           <GenreChart data={getGenres()} />
-        </Box>
-      </Grid>
-      <Grid item xs={12} md={6}>
-        <Box
-          sx={{
-            backgroundColor: 'primary.main',
-            borderRadius: '16px',
-            p: { xs: '8px', md: '30px' },
-            minHeight: '100%'
-          }}
-        >
-          <Typography variant='h1' textAlign='center' mb='16px' color="#FFF">
-            Comparar com amigos
-          </Typography>
+        </div>
+      </div>
+      <div>
+        <div className='min-h-full rounded-lg bg-baseBlack px-4 py-6'>
+          <div className='flex justify-between items-center text-primary mb-6 px-1'>
+            <h2 className='text-center'>
+              Comparar com amigos
+            </h2>
+            <FaUserFriends size={20} />
+          </div>
           {getUserPage.loading && <LinearProgress color='secondary' />}
           {getUserPage.result && (
-            <Stack spacing='8px'>
+            <div className='flex flex-col gap-2'>
               {getUserPage.result.map((user) => (
                 <UserCard
                   key={user.id}
@@ -122,10 +110,10 @@ export default function UserPage() {
                   redirectUrl={`comparar/${user.id.toString()}`}
                 />
               ))}
-            </Stack>
+            </div>
           )}
-        </Box>
-      </Grid>
-    </Grid>
+        </div>
+      </div>
+    </div>
   )
 }

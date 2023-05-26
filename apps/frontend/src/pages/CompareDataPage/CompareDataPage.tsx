@@ -20,34 +20,23 @@ export default function CompareDataPage () {
 
   const compareUserResult = getCompareUser.result
 
-  const currentUserTop5Artists = artists.slice(0, 5)
-  const compareUserTop5Artists = compareUserResult?.artists.slice(0, 5)
-
   return (
-    <Grid container spacing={8}>
-      <Grid item xs={12} md={6}>
+    <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
+      <div>
         <UserDataBox
-          name={user.name}
-          imageUrl={user.imageUrl}
-          tracks={tracks}
-          artists={currentUserTop5Artists}
+          userResult={{ user, tracks, artists }}
         />
-      </Grid>
-      <Grid item xs={12} md={6}>
-        {getCompareUser.loading && <LinearProgress />}
-        {compareUserResult && (
+      </div>
+      <div>
           <UserDataBox
-            name={compareUserResult.user.name}
-            imageUrl={compareUserResult.user.imageUrl}
-            tracks={compareUserResult.tracks}
-            artists={compareUserTop5Artists || []}
+            userResult={compareUserResult}
+            isLoading={getCompareUser.loading}
           />
-        )}
-      </Grid>
-      <Grid item xs={12}>
+      </div>
+      <div className=' lg:col-span-2'>
         {getCompareUser.loading && <LinearProgress />}
         {compareUserResult && <UsersCompareDataBox />}
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   )
 }
