@@ -16,7 +16,7 @@ export default function UserCard(props: UserCardProps) {
   return (
     <>
       <a href={isRedirect ? props.redirectUrl : undefined} className='no-underline w-full'>
-        <div className={`py-2 px-4 rounded-lg ${ props.isHeader ? 'bg-baseBlack' : 'bg-baseHigh'} ${isRedirect && 'hover:bg-neutral-600 transition-all shadow-md'}`}>
+        <div className={`py-2 px-4 rounded-lg ${ props.isHeader ? 'bg-baseBlack' : 'bg-baseHigh'} ${isRedirect && 'hover:bg-neutral-800 transitionDefault shadow-md'}`}>
           <div className='flex items-center gap-6'>
             <Avatar imageUrl={props.imageUrl} />
             <h3 className={`text-2xl font-medium text-white`}>

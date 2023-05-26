@@ -7,6 +7,8 @@ import GenreChart from '../../components/GenreChart/GenreChart'
 import Badge from '../../components/Badge'
 import ArtistAvatarTooltip from '../../components/ArtistAvatarTooltip'
 import { FaUserFriends } from 'react-icons/fa'
+import { RiGlobalLine } from 'react-icons/ri'
+import ButtonActionLarge from '../../components/ButtonActionLarge/ButtonActionLarge'
 
 export default function UserPage() {
   const { user, tracks, artists } = useCurrentUser()
@@ -90,11 +92,21 @@ export default function UserPage() {
       </div>
       <div>
         <div className='min-h-full rounded-lg bg-baseBlack px-4 py-6'>
-          <div className='flex justify-between items-center text-primary mb-6 px-1'>
-            <h2 className='text-center'>
+          <div className='px-1'>
+            <div className='flex gap-4 items-baseline text-primary'>
+              <RiGlobalLine size={20} />
+              <h2 className='mb-2'>Mathfy Global Insights</h2>
+            </div>
+            <div className='grid gap-2 grid-cols-2'>
+              <ButtonActionLarge href='/musicas' label='Músicas' />
+              <ButtonActionLarge href='/artistas' label='Artistas' />
+            </div>
+          </div>
+          <div className='flex gap-4 items-baseline text-primary px-1 mt-6'>
+            <FaUserFriends size={20} />
+            <h2 className='text-center mb-2'>
               Comparar com amigos
             </h2>
-            <FaUserFriends size={20} />
           </div>
           {getUserPage.loading && <LinearProgress color='secondary' />}
           {getUserPage.result && (
