@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar {
+  @apply w-3;
+  @apply bg-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-baseHighest;
+  @apply rounded-sm;
+}
+
 
 /* Sobrescrevendo classes do tremor para adaptar cores ao ds */
-
 #root {
   @apply bg-black min-h-screen
 }
@@ -23,12 +34,16 @@
 
 @layer base {
   h2 {
-    @apply text-3xl font-semibold text-gray-100
+    @apply text-xl md:text-2xl font-semibold text-gray-100
   }
 }
 
 @layer utilities {
   .card {
     @apply bg-baseBlack rounded-lg shadow-lg p-4
+  }
+
+  .transitionDefault {
+    @apply transition duration-300
   }
 }
