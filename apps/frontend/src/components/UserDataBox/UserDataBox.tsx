@@ -37,7 +37,7 @@ export default function UserDataBox(props: UserCompareBoxProps) {
               Músicas favoritas de {userResult.user.name}
             </h2>
             <div className='flex flex-wrap gap-2'>
-              {userResult.tracks.map(track => (
+              {userResult.tracks.slice(0, 12).map(track => (
                 <Badge
                   key={track.id}
                   label={track.name} />

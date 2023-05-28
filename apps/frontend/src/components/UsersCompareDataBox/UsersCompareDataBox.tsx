@@ -1,72 +1,97 @@
-import { Avatar, Box, Chip, Container, Stack, Typography } from '@mui/material'
+import { Box, Chip } from '@mui/material'
+import ArtistAvatarTooltip from '../ArtistAvatarTooltip'
+import { useCurrentUser } from '../../hooks/use-current-user'
+import { ArtistsResult } from 'api-client/src/types/artists/ArtistsResult'
+import { TrackResult } from 'api-client/src/types/tracks/TrackResult'
 
-export default function UsersCompareDataBox() {
+interface UserCompareResultProps {
+  data: {
+    artists: ArtistsResult[],
+    tracks: TrackResult[]
+  }
+}
+
+const UsersCompareDataBox: React.FC<UserCompareResultProps> = ({ data }) => {
+  const currentUser = useCurrentUser();
+
+  const matchArtists = [
+    ...currentUser.artists.slice(currentUser.artists.length - 3, currentUser.artists.length),
+    ...data.artists.slice(data.artists.length - 3, data.artists.length)
+  ];
+
+  const currentUserGenres = currentUser.artists.map(e => e.genres[0]);
+  const matchUserGenres = data.artists.map(e => e.genres[0]);
+
+  const commonGenresFilter = currentUserGenres.filter(genre => matchUserGenres.includes(genre));
+
+  const commonGenres = commonGenresFilter.filter(function (este, i) {
+    return commonGenresFilter.indexOf(este) === i;
+  });
+
+  const matchGenres = [
+    ...commonGenres,
+    ...currentUserGenres.slice(currentUserGenres.length - 6, currentUserGenres.length),
+    ...matchUserGenres.slice(matchUserGenres.length - 6, matchUserGenres.length)
+  ].filter(e => e !== undefined);
+
+  const matchMusics = [
+    ...currentUser.tracks.slice(currentUser.tracks.length - 6, currentUser.tracks.length),
+    ...data.tracks.slice(data.tracks.length - 6, data.tracks.length)
+  ]
+
   return (
     <Box
       sx={{
         width: '100%',
         backgroundColor: 'primary.main',
-        px: { xs: '8px', md:'30px' },
-        py: { xs: '20px', md:'40px' },
+        px: { xs: '8px', md: '30px' },
+        py: { xs: '20px', md: '40px' },
         borderRadius: '16px',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        gap: '2rem'
       }}
     >
-      <Typography
-        variant='h2'
-        sx={{
-          color: 'secodary',
-          fontWeight: 700,
-          mb: '30px'
-        }}
-      >
+      <h1 className='text-3xl font-bold text-white'>
         Artistas favoritos entre vocês
-      </Typography>
-      <Stack direction='row' spacing='16px' flexWrap='wrap'>
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-        <Avatar />
-      </Stack>
-      <Typography
-        variant='h2'
-        sx={{
-          color: 'secodary',
-          fontWeight: 700,
-          mt: '60px',
-          mb: '30px'
-        }}
-      >
-        Generos musicais que vocês podem se dar bem
-      </Typography>
-      <Container maxWidth='xs'>
-        <Chip label='Chip' variant='outlined' color='secondary' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-        <Chip label='Chip' />
-      </Container>
-      <Typography
-        variant='h2'
-        sx={{
-          color: 'secodary',
-          fontWeight: 700,
-          mt: '60px',
-          mb: '30px'
-        }}
-      >
-        Musicas que vocês gostam em comum
-      </Typography>
+      </h1>
+      <div className='flex justify-center items-center gap-4'>
+        {matchArtists.slice(0, 5).map((artist: any) => (
+          <ArtistAvatarTooltip
+            key={artist.id}
+            name={artist.name}
+            imageUrl={artist.imageUrl}
+            id={artist.id}
+            uri={artist.uri} />
+        ))}
+      </div>
+      <h1 className='text-3xl font-bold text-white'>
+        Generos que vocês podem se dar bem
+      </h1>
+      <div className='w-3/5'>
+        {(
+          matchGenres.map(e => {
+            return (
+              <Chip className='p-1 capitalize text-md font-bold text-white mx-1 my-1' label={e} />
+            )
+          })
+        )}
+      </div>
+      <h1 className='text-3xl font-bold text-white'>
+        Musicas que vocês possam gostar
+      </h1>
+      <div className='w-3/5'>
+        {(
+          matchMusics.map(e => {
+            return (
+              <Chip className='p-1 capitalize text-md font-bold text-white mx-1 my-1' label={e.name} />
+            )
+          })
+        )}
+      </div>
     </Box>
   )
 }
+
+export default UsersCompareDataBox;
