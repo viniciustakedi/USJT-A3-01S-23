@@ -7,7 +7,7 @@ export class ArtistsClient {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: 'http://localhost:5002',
+      baseURL: `${import.meta.env.VITE_ARTISTS_API_URL}`|| 'http://localhost:5002',
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
     })
   }

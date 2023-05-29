@@ -7,7 +7,7 @@ export class TracksClient {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: 'http://localhost:5001',
+      baseURL: `${import.meta.env.VITE_TRACKS_API_URL}` || 'http://localhost:5001',
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
     })
   }

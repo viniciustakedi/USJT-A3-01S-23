@@ -18,7 +18,7 @@ export class UserClient {
 
   constructor() {
     this.axios = axios.create({
-      baseURL: 'http://localhost:5000',
+      baseURL: `${import.meta.env.VITE_USERS_API_URL}` || 'http://localhost:5000',
       paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' })
     })
   }
