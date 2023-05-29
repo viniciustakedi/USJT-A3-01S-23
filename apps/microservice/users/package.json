@@ -8,7 +8,7 @@
     "dev": "tsx watch --no-cache src/server.ts ",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
-    "build": "npx tsc --jsx preserve -t es2020 --outDir dist --noEmit false",
+    "build": "npx tsc --outDir dist",
     "migrate:deploy": "npx prisma migrate deploy",
     "start:users": "node dist/server.js"
   },

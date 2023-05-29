@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
-    "build": "npx tsc --jsx preserve -t es2020 --outDir dist --noEmit false",
+    "build": "npx tsc --outDir dist",
     "start": "node dist/server.js"
   },
   "keywords": [],
