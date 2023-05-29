@@ -4,7 +4,7 @@ import { router } from './modules/routes'
 import './providers/kafka/consumers'
 
 const app = express()
-const port = 5002
+const port = process.env.PORT || 5002
 
 app.use(express.json())
 app.use(cors())
