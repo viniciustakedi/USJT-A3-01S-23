@@ -5,11 +5,13 @@
     "build": {
       "outputs": ["dist/**"]
     },
-    "frontend:build": {
-      "dependsOn": ["^build"],
+    "deploy": {
+      "dependsOn": ["generate", "build"],
       "outputs": ["dist/**"]
     },
+    "generate": {},
     "lint": {},
+    "migrate": {},
     "dev": {
       "cache": false,
       "persistent": true
