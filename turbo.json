@@ -9,6 +9,9 @@
     "generate": {},
     "lint": {},
     "migrate": {},
+    "start:users": {
+      "dependsOn": ["generate"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

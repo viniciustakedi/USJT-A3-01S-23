@@ -9,7 +9,7 @@
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
     "build": "npx tsc --jsx preserve -t es2020 --outDir dist --noEmit false",
-    "start": "node dist/server.js"
+    "start:users": "node dist/server.js"
   },
   "keywords": [],
   "author": "",

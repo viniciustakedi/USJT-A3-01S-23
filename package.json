@@ -10,7 +10,7 @@
     "lint:fix": "eslint *.ts --fix",
     "migrate": "turbo run migrate",
     "generate": "turbo run generate",
-    "start:users": "npm run --workspace=users start",
+    "start:users": "turbo run start:users",
     "start:artists": "npm run --workspace=artists start",
     "start:tracks": "npm run --workspace=tracks start"
   },
