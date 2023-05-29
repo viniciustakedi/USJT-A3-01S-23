@@ -43,6 +43,7 @@
 
 - `npm run build`: Build da aplicação
 - `npm run lint`: Serviço de lint na aplicação
+- `npm run generate`: Gera a lib do Prisma ORM para cada microservice
 - `npm run migrate`: Aplica as migrations no banco de dados
 
 <br/>
@@ -52,16 +53,31 @@
 1. Caso for sua primeira vez na aplicação, instale as dependencias do projeto
     - `npm install`
 
-2. Após instalar as dependencia, rode as migrations para atualizar o banco de dados local
+2. Setar váriaveis de ambiente em cada microservice
+    - `criar arquivo .env na raiz de cada microsserviço com a variavel DATABASE_URL`
+
+3. Rode as migrations para atualizar o banco de dados local
     - `npm run migrate`
 
-3. Por ultimo, inicie a aplicação
+4. Gerar lib do Prisma ORM 
+    - `npm run generate`
+
+5. Por ultimo, inicie a aplicação
     - `npm run dev`
+
 
 - A aplicação ira rodar no seu localhost
     - frontend: localhost:3000
     - microserviço1: localhost:5000
     - microserviço2: localhost:5001
+    - ...
+
+
+## Serviços externos utilizados
+|       Serviço       |         Funcionalidade        |
+|------------------|------------------|
+| Railway | instancias PostgreSQL para cada microserviço |
+| Upstash | Barramento de eventos com Kafka |
 
 
 <br />
