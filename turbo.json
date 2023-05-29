@@ -10,7 +10,7 @@
     "lint": {},
     "migrate": {},
     "start:users": {
-      "dependsOn": ["^generate"]
+      "dependsOn": ["^build"]
     },
     "dev": {
       "cache": false,
