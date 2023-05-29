@@ -10,6 +10,8 @@
     "lint": {},
     "migrate": {},
     "start:users": {},
+    "start:tracks": {},
+    "start:artists": {},
     "dev": {
       "cache": false,
       "persistent": true
